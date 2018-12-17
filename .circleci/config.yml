@@ -1,0 +1,15 @@
+version: 2
+
+jobs:
+  build_and_test:
+    docker:
+      - image: gradle:5.0-jdk8-alpine
+    steps:
+      - checkout
+      - run: gradle build test jar --no-daemon --console plain
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build_and_test
