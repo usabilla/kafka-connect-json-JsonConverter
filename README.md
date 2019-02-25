@@ -3,6 +3,12 @@ KafkaConnect JsonConverter
 
 This package simply inherits from the official `org.apache.kafka.connect.json.JsonConverter` and makes it compatible with Tombstone messages
 
+## Deprecated
+
+The fix is now present at [Kafka 2.1.1](https://www.apache.org/dist/kafka/2.1.1/RELEASE_NOTES.html) which fixed [KAFKA-3832](https://issues.apache.org/jira/browse/KAFKA-3832)
+
+Use it only if you're stuck in older Kafka versions at your own risk, since this won't be maintained anymore.
+
 ## The problem
 
 Currently the official JsonConverter when schemas is enabled, it won't be able to generate tombstone messages, when you attempt to send a `NULL` record, the output looks like:
